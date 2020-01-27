@@ -66,8 +66,8 @@ int main()
 		{
 			case 1:
 			 cir.setData();
-             cir.peri();
-             sum+=2*cir.r*pi;
+                         cir.peri();
+                         sum+=2*cir.r*pi;
 			 break;
 			case 2:
 			 rec.setData();
