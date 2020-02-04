@@ -1,12 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 const double pi = 3.14;
+class Figure
+{
+public:
+	virtual double getArea() = 0;	
+};
 class Perimeter
 {
 public:
      virtual double peri() = 0;
 };
-class Circle : public Perimeter
+class Circle : public Perimeter,public Figure
 {
 public:
 	double r;
@@ -17,10 +22,14 @@ public:
     }
     virtual double peri()
     {
-        cout<<"The perimeter of the circle is: "<<2*pi*r<<endl;
+        return 2*pi*r;
     }
+    virtual double getArea()
+    {
+    	cout<<"The area of the circle is: "<<pi*r*r<<endl;
+	}
 }cir;
-class Rectangle : public Perimeter
+class Rectangle : public Perimeter,public Figure
 {
 public:
 	double a,b;
@@ -31,10 +40,14 @@ public:
     }
     virtual double peri()
     {
-        cout<<"The perimeter of the rectangle is: "<<2*(a+b)<<endl;
+        return 2*(a+b);
     }
+    virtual double getArea()
+    {
+    	cout<<"The area of the rectangle is: "<<a*b<<endl;
+	}
 }rec;
-class Square : public Perimeter
+class Square : public Perimeter,public Figure
 {
 public:
 	double a;
@@ -45,15 +58,19 @@ public:
     }
     virtual double peri()
     {
-        cout<<"The perimeter of the square is: "<<4*a<<endl;
+        return 4*a;
     }
+    virtual double getArea()
+    {
+    	cout<<"The area of the square is: "<<a*a<<endl;
+	}
 }sq;
 int main()
 {
 	cout<<"How many shapes do you want to find the perimeter of?"<<endl;
 	int n;
 	cin>>n;
-	double sum = 0;
+	double sum ;
 	for(int i=0;i<n;i++)
 	{
 		cout<<"What shape's perimeter do you want to calculate?"<<endl;
@@ -66,18 +83,21 @@ int main()
 		{
 			case 1:
 			 cir.setData();
-                         cir.peri();
-                         sum+=2*cir.r*pi;
+			 cout<<"The perimeter of the circle is: "<<cir.peri()<<endl;
+             cir.getArea();
+             sum += cir.peri();
 			 break;
 			case 2:
 			 rec.setData();
-			 rec.peri();
-			 sum+=2*(rec.a + rec.b);
+			 cout<<"The perimeter of the rectangle is: "<<rec.peri()<<endl;
+			 rec.getArea();
+			 sum += rec.peri();
 			 break;
 			case 3:
 			 sq.setData();
-			 sq.peri();
-			 sum+=4*sq.a;
+			 cout<<"The perimeter of the square is: "<<sq.peri()<<endl;
+			 sq.getArea();
+			 sum += sq.peri();
 			 break;
 		}
     }
