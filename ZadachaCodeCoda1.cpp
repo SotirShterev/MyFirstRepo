@@ -79,13 +79,13 @@ int main()
 		cout<<"3. Square"<<endl;
 		int choice;
 		cin>>choice;
-		switch(choice)
+		switch(choice) 
 		{
 			case 1:
 			 cir.setData();
 			 cout<<"The perimeter of the circle is: "<<cir.peri()<<endl;
-             cir.getArea();
-             sum += cir.peri();
+                         cir.getArea();
+                         sum += cir.peri();
 			 break;
 			case 2:
 			 rec.setData();
